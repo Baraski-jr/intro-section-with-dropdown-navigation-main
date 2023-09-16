@@ -1,0 +1,353 @@
+:root {
+    /* Colors */
+    --clr-100: hsl(0, 0%, 98%);
+    --clr-150: hsla(0, 0%, 100%, .1);
+
+    --clr-200: hsl(0, 0%, 41%);
+    --clr-300: hsl(0, 0%, 8%);
+
+    /* Fonts */
+    --fs-s: 18px;
+    --fs-l: 2.5em;
+    --fw-m: 500;
+    --fw-l: 700;
+}
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+li {
+    list-style: none;
+}
+a {
+    color: var(--clr-300);
+    text-decoration: none;
+}
+img {
+    display: block;
+    /* max-width: 100%; */
+}
+/* Reset end */
+/* Vertical gap */
+.gap-v-s {
+    margin-block: 1em;
+}
+.gap-v-m {
+    margin-block: 2em;
+}
+.gap-v-l {
+    padding-block: 2.3em;
+}
+/* Horizontal gap */
+.gap-h-s {
+    padding-inline: 1em;
+}
+.gap-h-m {
+    padding-inline: 2em;
+}
+body {
+    min-height: 100vh;
+    background-color: hsla(0, 0%, 100%, .1);
+    overflow-x: hidden;
+}
+.primary-header {
+    display: flex;
+    gap: 1em;
+    padding: 1em;
+    justify-content: space-between;
+    /* position: relative; */
+}
+.hamburger {
+    z-index: 2;
+}
+.nav-link-secondary,
+.main-nav-link,
+.nav-link {
+    font-size: var(--fs-s);
+    cursor: pointer;
+    color: var(--clr-200);    
+}
+.nav-link-secondary:hover,
+.main-nav-link:hover,
+.nav-link:hover {
+    color: var(--clr-300);        
+}
+
+/* Animation start */
+@keyframes nav-open {
+    from {
+        transform: translateX(50em);       
+    }
+    to {
+        transform: translateX(0em);
+    }
+}
+@keyframes nav-close {
+    from {
+        transform: translateX(0em);
+        
+    }
+    to {
+        transform: translateX(-50em);
+    }
+}
+/* Animamtion end */
+.primary-navigation {
+    position: absolute;
+    top: 7em;
+    transform: translateX(50em);
+    background-color: var(--clr-100);
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding-block: 4.5em;
+    border: 2px solid red;
+}
+.primary-header-navigation {
+    background-color: lightcyan;
+    position: absolute;
+    padding: 5em 1.5em;
+    right: 0;
+    /* width: 70%; */
+    height: 100vh;
+    top: 0;
+    font-size: var(--fs-s);
+    font-weight: var(--fw-m);
+    display: none;
+}
+.primary-header-navigation.open {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    /* Animation rule */
+    animation-name: nav-open;
+    animation-duration: 1s;
+    transform: translateX(0em);
+    /* Animation end */
+}
+.primary-header-navigation.close {
+    display: flex;
+    /* Animation rule */
+    animation-name: nav-close;
+    animation-duration: 1s;
+    transform: translateX(50em);
+    /* Animation end */
+}
+/* Added */
+.round-ring {
+    border: 2px solid var(--clr-200);
+    width: 100%;
+    padding: .5em 5em;
+    border-radius: .8em;
+    color: var(--clr-200);
+}
+.round-ring:hover {
+    border-color: var(--clr-300);
+    color: var(--clr-300);
+}
+.primary-secondary-navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    
+}
+.primay-navigation,
+.secondary-navigation{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    /* height: auto; */
+}
+.main-nav-link{
+    display: flex;
+    align-items: center;
+    gap: .8em;
+}
+.primary-navigation__inner {
+    padding-block: 1em;
+    display: none;
+
+    position: relative;
+    top: 1em;
+    left: 1.5em;
+}
+.primary-navigation__inner.feature.open,
+.primary-navigation__inner.company.open {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.nav-link-secondary {
+    display: flex;
+    gap: 1em;
+    /* border: 2px solid red; */
+    width: fit-content;
+}
+/* Seconday navigation  (about and careers)*/
+/* Login and register */
+/* .primary-secondary-navigation {
+    display: flex;
+    align-items: flex-start;
+} */
+/* Navigation end */
+/* Centering */
+.center-in {
+    text-align: center;
+}
+.center-out {
+    margin-inline: auto;
+}
+.learn-more {
+    border: none;
+    width: min(10em, 100%);
+    padding: 1em 1.5em;
+    margin-inline: auto;
+    border-radius: 1em;
+    display: block;
+    background-color: var(--clr-300);
+    color: var(--clr-100);
+    font-weight: var(--fw-l);
+    font-size: var(--fs-s);
+}
+.text {
+    color: var(--clr-200);
+    font-size: var(--fs-s);
+    font-weight: var(--fw-m);
+    line-height: 1.5;
+    text-align: center;
+}
+.text-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+.main-title {
+    text-align: center;
+    font-size: clamp(2em, 8vw, var(--fs-l));
+}
+.flex-wrapper {
+    margin-top: 1em;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+}
+.main-image {
+    max-width: 100%;
+
+}
+.flex-wrapper img {
+    width: 5em;
+}
+/* main {
+    display: none;
+} */
+/* Large Screen */
+@media screen and (min-width: 558px) {
+    body {
+        display: grid;
+        gap: 5em;
+        padding: 1em;
+    }
+    /* Added */
+    /* Added end */
+    .logo {
+        width: 13%;
+    }
+    .primary-header
+    .primary-header-navigation {
+        background-color: transparent;
+        position: initial;
+        display: flex;
+        flex-direction: row;
+        height: auto;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0;
+        /* border: 2px solid red; */
+        position: relative;
+    }
+    .primay-navigation {
+        flex-direction: row;
+        width: min(90em, 90%);
+    }
+    .primary-navigation__inner {
+        box-shadow: 0 0 5px var(--clr-200);
+        background-color: var(--clr-100);
+        padding: 1em;
+        z-index: 1;
+        border-radius: .5em;
+        position: absolute;
+        top: 2.5em;
+        width: fit-content;
+    }
+
+    /* POSITONING OF THE MORE NAV CONTAINERS */
+    .primary-navigation__inner.feature.open {
+        left: -2.5em;
+    }
+    .primary-navigation__inner.company.open {
+        left: 10em;
+    }
+    /* Seconday navigation  (about and careers)*/
+    .secondary-navigation,
+    .primay-navigation {
+        flex-direction: row;
+        gap: 5em;
+    }
+    /* Login and register */
+    .primary-secondary-navigation {
+        flex-direction: row;
+    }
+    /* Nav end */
+    main {
+        width: min(90em, 90%);
+        display: grid;
+        gap: 1em;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "text picture";
+    }
+    picture {
+        grid-area: picture;
+    }
+    .text-wrapper {
+        grid-area: text;
+        width: 95%;
+        display: flex;
+        gap: 4em;
+        justify-content: flex-end;
+        position: relative;
+    }
+    .main-title {
+        font-size: clamp(2.5em, 5vw, 5.5em);
+        text-align: left;
+        line-height: 1;
+    }
+    .text {
+        text-align: left;
+        width: min(40em, 90%);
+    }
+    .main-image {
+        max-width: 75%;
+        height: 100%;
+    }
+    .learn-more {
+        margin-inline: 0;
+    }
+    .flex-wrapper {
+        margin-top: 5em;
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .hamburger {
+        display: none;
+    }
+}
